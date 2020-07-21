@@ -1,0 +1,18 @@
+{
+  "labels":[
+    "anger",
+    "enthusiasm",
+    "fun",
+    "happiness",
+    "hate",
+    "love",
+    "neutral",
+    "relief",
+    "sadness",
+    "surprise",
+    "worry",
+    "fear"
+  ],
+  "pretrained_vectors":null,
+  "pretrained_dims":null
+}

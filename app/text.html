@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Nero's Project</title>
+    <link href="https://lh3.googleusercontent.com/a-/AOh14Gi0DgItGDTATTFV6lPiVrqtja6RZ_qrY91zg42o-g" rel="shortcut icon"
+        type="image/x-icon" />
+
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="text.css">
+</head>
+
+<body>
+    
+    <!-- component -->
+
+
+    <div id='app' class="h-screen w-screen flex bg-gray-100">
+        <!-- container -->
+
+        <aside class="hidden lg:flex flex-col items-center bg-white text-gray-700 
+		h-full border-r-2">
+            <!-- Side Nav Bar-->
+
+            <div class="h-16 flex items-center w-full">
+                <!-- Logo Section -->
+                <a class="h-6 w-6 mx-auto" href="">
+                    <img class="h-6 w-6 mx-auto"
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Svelte_Logo.svg/512px-Svelte_Logo.svg.png"
+                        alt="svelte logo" />
+                </a>
+            </div>
+
+            <ul>
+                <!-- Items Section -->
+                <li class="hover:bg-gray-100">
+                    <a href="." class="h-16 px-6 flex flex justify-center items-center w-full
+					focus:text-orange-500">
+                        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="22 12 16 12 14 15 10 15 8 12 2 12"></polyline>
+                            <path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0
+							2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0
+							0-1.79 1.11z"></path>
+                        </svg>
+
+                    </a>
+                </li>
+
+                <li class="hover:bg-gray-100">
+                    <a href="." class="h-16 px-6 flex flex justify-center items-center w-full
+					focus:text-orange-500">
+                        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                        </svg>
+
+                    </a>
+                </li>
+
+                <li class="hover:bg-gray-100">
+                    <a href="." class="h-16 px-6 flex flex justify-center items-center w-full
+					focus:text-orange-500">
+                        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="3"></circle>
+                            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1
+							0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0
+							0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2
+							2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0
+							0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1
+							0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0
+							0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65
+							0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0
+							1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0
+							1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2
+							0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0
+							1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0
+							2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0
+							0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65
+							1.65 0 0 0-1.51 1z"></path>
+                        </svg>
+                    </a>
+                </li>
+
+            </ul>
+
+            <div class="mt-auto h-16 flex items-center w-full">
+                <!-- Action Section -->
+                <button class="h-16 w-10 mx-auto flex flex justify-center items-center
+				w-full focus:text-orange-500 hover:bg-red-200 focus:outline-none">
+                    <svg class="h-5 w-5 text-red-700" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                        <polyline points="16 17 21 12 16 7"></polyline>
+                        <line x1="21" y1="12" x2="9" y2="12"></line>
+                    </svg>
+
+                </button>
+            </div>
+
+        </aside>
+
+        <div id="outermost-div" class="flex-1 resize-none flex flex-col" style="height: 100%;">
+            <nav class="px-4 flex flex-shrink-0 justify-between bg-white h-16 border-b-2 ">
+                <!-- top bar -->
+
+                <ul class="flex items-center lg:hidden">
+                    <!-- top bar left -->
+                    <li class="h-6 w-6">
+                        <img class="h-full w-full mx-auto"
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Svelte_Logo.svg/512px-Svelte_Logo.svg.png"
+                            alt="svelte logo" />
+                    </li>
+                </ul>
+
+                <ul class="flex items-center">
+                    <!-- top bar center -->
+                    <li>
+                        <h1 class="pl-10 lg:pl-0 text-gray-700">Nero</h1>
+                    </li>
+                </ul>
+
+                <ul class="flex items-center">
+                    <!-- to bar right  -->
+
+                    <li class="pr-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-bell">
+                            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                        </svg>
+
+                    </li>
+
+                    <li class="h-8 w-8">
+                        <img class="h-full w-full rounded-full mx-auto"
+                            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+                            alt="profile woman" />
+                    </li>
+
+                </ul>
+
+            </nav>
+
+            <div id="outer-div" class='px-5 flex-grow-0 overflow-auto sm:px-24 lg:px-32 lg:pt-24 lg:pb-40 xl:px-48' style="height: 95%;">
+                <div class=' mx-auto pb-2 pt-1 sm:pt-3 sm:pb-3'>
+                    <h2 class="text-xl text-gray-700 lg:text-2xl xl:text-3xl">Text Sentiments</h2>
+                    <p></p>
+                </div>
+
+                <div id="main-div" class='flex flex-col bg-gray-100 flex-grow-0 lg:flex-row mx-auto lg:bg-white rounded-md lg:rounded-none' >
+
+                    <div id="inner-div-1" class=' flex-1 bg-white mb-2 rounded-md overflow-auto resize-none px-4 pt-2 sm:mb-4 lg:mb-0 lg:px-4 xl:px-6 lg:rounded-none' style="height: 100%;" >
+                        <h3 class="text-md text-gray-700 pt-0 pb-1 lg:text-lg lg:pt-1 xl:text-xl xl:pb-2">Enter Your Text</h3>
+
+                        <form id="form-div" method="get" id="form" class="">
+
+                            <textarea id="text-area" class="bg-white rounded-md text-lg border border-gray-300 focus:outline-none focus:border-blue-500 text-base px-4 pt-2 mb-5 resize-none" form="form" name="name" id="taid" wrap="soft" v-model="text"
+                                v-on:keyup="sendRequest()" ref='input'></textarea>
+
+                            <div id="form-button" class="">
+                                <input class="inline-flex text-white bg-blue-500 border-0 py-1 px-2 focus:outline-none hover:bg-blue-600 rounded" id="sendButton" type="submit" value="Classify Text" @click.prevent="sendRequest()">
+                            </div>
+                        </form>
+
+                    </div>
+
+                    <!-- <div class="px-2"><hr class=""></div> -->
+                    <div id="divider" class="hidden lg:block md:border-r w-px py-3 my-3" ></div>
+
+                    <div id="inner-div-2" class=" flex-1 bg-white mt-2 rounded-md resize-none overflow-auto p-3 lg:mt-0 lg:rounded-none " >
+                        <div class="flex flex-row py-4 border-b ml-3 mr-6">
+                            <h3 class="flex-1 text-left text-gray-600" >RESULT</h3>
+                            <h3 class="flex-1 text-right text-gray-600">SCORE</h3>
+                        </div>
+                         
+                        <div v-if="info">
+
+                            <div v-if='info.sentiment' class="flex flex-row py-4 border-b ml-3 mr-6">
+                                <div class="flex-1 text-left text-gray-800 text-xl">{{polarityNormalized(info.sentiment.polarity)}} <div class="flex-1 text-left text-gray-600 text-xs">SENTIMENT</div> </div>
+
+                                <div class="flex-1 text-right text-green-500 pt-2">{{info.sentiment.polarity | decimal}}</div>
+                            </div>
+                              
+                            <div v-if='info.sentiment' class="flex flex-row py-4 border-b ml-3 mr-6">
+                                <div class="flex-1 text-left text-gray-800 text-xl"> {{subjectivityNormalized(info.sentiment.subjectivity)}} <div class="flex-1 text-left text-gray-600 text-xs">SUBJECTIVITY</div></div>
+                                <div class="flex-1 text-right text-green-500 pt-2">{{info.sentiment.subjectivity | decimal}}</div>
+                            </div>
+ 
+                            
+                            <div v-for="(emotion, name) in actualEmotions">
+                                 
+
+                                <div class="flex flex-row py-4 border-b ml-3 mr-6">
+                                    <div class="flex-1 text-left text-gray-800 text-xl" >{{name | titleize}} <div class="flex-1 text-left text-gray-600 text-xs">EMOTION</div></div>
+                                    <div class="flex-1 text-right text-green-500 pt-2">{{emotion | decimal}}</div>
+                                </div>
+
+                            </div>
+                            
+                            
+                            <div v-if="info.sentences.length"> 
+
+                                <div class="border-b ml-3 mr-6 text-gray-800 flex flex-row text-xl py-6 text-center font-light"> 
+                                    <div class="rounded-full bg-green-500 h-6 w-6 flex mt-1 ml-1 items-center justify-center font-normal text-white">i</div>
+                                     <div class="flex-3 mx-auto justify-center">{{info.sentences.length}} Sentences Detected</div>
+                                </div>
+
+                                <div v-for="s in info.sentences">
+                                    
+                                    <div class="text-blue-700 text-xl ml-3 mr-6 italic border-b py-6 text-center">"{{s.text}}" </div>
+
+                                    <div v-if='info.sentiment' class="flex flex-row py-4 border-b ml-3 mr-6">
+                                        <div class="flex-1 text-left text-gray-800 text-xl">{{polarityNormalized(s.polarity)}} <div class="flex-1 text-left text-gray-600 text-xs">SENTIMENT</div> </div>
+        
+                                        <div class="flex-1 text-right text-green-500 pt-2">{{s.polarity | decimal}}</div>
+                                    </div>
+
+                                    <div v-if='info.sentiment' class="flex flex-row py-4 border-b ml-3 mr-6">
+                                        <div class="flex-1 text-left text-gray-800 text-xl"> {{subjectivityNormalized(s.subjectivity)}} <div class="flex-1 text-left text-gray-600 text-xs">SUBJECTIVITY</div></div>
+                                        <div class="flex-1 text-right text-green-500 pt-2">{{s.subjectivity | decimal}}</div>
+                                    </div>
+                                    
+                                    <!-- <p>{{s.emotions}} </p> -->
+                                    <div v-if=>
+                                        <div v-for="(emotion, name) in nestedEmotions(s.emotions)"> 
+                                            
+
+                                            <div class="flex flex-row py-4 border-b ml-3 mr-6">
+                                                <div class="flex-1 text-left text-gray-800 text-xl" >{{name | titleize}} <div class="flex-1 text-left text-gray-600 text-xs">EMOTION</div></div>
+                                                <div class="flex-1 text-right text-green-500 pt-2">{{emotion | decimal}}</div>
+                                            </div>
+            
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                    
+
+                                </div>
+
+                            </div>
+                            
+                            
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+            <script src="text.js"></script>
+        </div>
+
+        <nav class="fixed bottom-0 w-full border bg-white lg:hidden flex
+		overflow-x-auto">
+            <!-- Bottom Icon Navigation Menu -->
+
+            <a href="." class="flex flex-col flex-grow items-center justify-center
+			overflow-hidden whitespace-no-wrap text-sm transition-colors
+			duration-100 ease-in-out hover:bg-gray-200 focus:text-blue-500">
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="22 12 16 12 14 15 10 15 8 12 2 12"></polyline>
+                    <path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0
+					2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path>
+                </svg>
+
+                <span class="hidden text-sm capitalize">Inbox</span>
+            </a>
+
+            <a href="." class="flex flex-col flex-grow items-center justify-center
+			overflow-hidden whitespace-no-wrap text-sm transition-colors
+			duration-100 ease-in-out hover:bg-gray-200 text-orange-500">
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-github">
+                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0
+					0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77
+					5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7
+					0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0
+					0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                </svg>
+
+                <span class="text-sm capitalize">github</span>
+            </a>
+
+            <a href="." class="flex flex-col flex-grow items-center justify-center
+			overflow-hidden whitespace-no-wrap text-sm transition-colors
+			duration-100 ease-in-out hover:bg-gray-200 focus:text-orange-500">
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-bookmark">
+                    <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                </svg>
+
+                <span class="hidden text-sm capitalize">bookmark</span>
+            </a>
+
+            <a href="." class="flex flex-col flex-grow items-center justify-center
+			overflow-hidden whitespace-no-wrap text-sm transition-colors
+			duration-100 ease-in-out hover:bg-gray-200 focus:text-orange-500">
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="3"></circle>
+                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83
+					2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65
+					0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0
+					0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2
+					2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0
+					0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0
+					4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2
+					0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0
+					1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1
+					1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0
+					0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0
+					1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0
+					0-1.51 1z"></path>
+                </svg>
+
+                <span class="hidden text-sm capitalize">Settings</span>
+            </a>
+
+        </nav>
+
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,1 @@
+tweet_data['sentiment'].drop_duplicates().to_list()
