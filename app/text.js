@@ -51,6 +51,7 @@ new Vue({
     //   axios
     //     .get('http://localhost:5000/api/text?name=you are a noble')
     //     .then(response => (this.info = response.data))
+    document.getElementById("htmlMain").style.visibility = 'visible';
     },
 
 

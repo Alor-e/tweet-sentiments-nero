@@ -71,8 +71,17 @@
   }
 }
 
+@media screen and (min-width: 2400px) {
+  #text-area {
+    height: 100%;
+  }
+}
 
 #main-div {
   height: 90%;
   max-height: 90%;
+}
+
+#headerLogo{
+  padding-left: 5rem;
 }

@@ -33,6 +33,8 @@ new Vue({
 
             averageSubjectivityValueApprox: '',
 
+            titleHolder: null,
+
         }
     },
 
@@ -63,7 +65,7 @@ new Vue({
         //   axios
         //     .get('http://localhost:5000/api/text?name=you are a noble')
         //     .then(response => (this.info = response.data))
-
+        document.getElementById("htmlMain").style.visibility = 'visible';
     },
 
 
@@ -84,6 +86,7 @@ new Vue({
                         this.chartSubjectivityListsGenerator()
                         this.averagePolarity()
                         this.averageSubjectivity()
+                        this.titleHolder = this.text
 
                     }))
 
@@ -96,7 +99,13 @@ new Vue({
                         this.charts(this.uniqueSubjectivity, this.subjectivityCount, 'bar', 'subjectivityBar', 'Tweets Subjectivity Bar Chart')
 
                     }))
+
             }
+        },
+
+        pageRequest() {
+
+            location.replace()
         },
 
         nestedEmotions: function (obj) {
@@ -201,7 +210,7 @@ new Vue({
                 }
             });
 
-            
+
 
         },
 
@@ -292,39 +301,40 @@ new Vue({
 
         },
 
-        
+
         sideBar() {
-        let x = document.getElementById("sideBar");
-        
+            let x = document.getElementById("sideBar");
+
             x.style.display = "none";
-        
-        let y = document.getElementById("expandedSideBar");
+
+            let y = document.getElementById("expandedSideBar");
 
             y.style.display = "flex";
-        
+
+            
         },
 
         expandedSideBar() {
             let x = document.getElementById("expandedSideBar");
-            
+
             x.style.display = "none";
-        
+
             let y = document.getElementById("sideBar");
-    
-                y.style.display = "flex";
-            
-            
+
+            y.style.display = "flex";
+
+        
         },
 
         resizeCanvas() {
-            let canvs = document.getElementsByTagName('canvas')
+            // let canvs = document.getElementsByTagName('canvas')
 
-            for (let item of canvs) {
-                item.width = window.innerWidth ;
-                item.height = window.innerHeight ;
-            }
-           
-        }, 
+            // for (let item of canvs) {
+
+            //     item.height = 500 ;
+            // }
+
+        },
 
         wordCloud() {
 
@@ -357,9 +367,9 @@ new Vue({
                         return w.text == word;
                     });
                     if (wordObj.length) {
-                        wordObj[0].size += 1;
+                        wordObj[0].size += 3;
                     } else {
-                        newArray.push({ text: word, size: 1 });
+                        newArray.push({ text: word, size: 3 });
                     }
                 });
                 return newArray;
@@ -368,7 +378,7 @@ new Vue({
 
 
             wordsAll = wordFrequency(remove_stopwords(allText))
-            let relevantWords = wordsAll.filter((item) => item.size > 2);
+            let relevantWords = wordsAll.filter((item) => item.size > 4);
 
             var color = d3.scale.linear()
                 .domain([0, 1, 2, 3, 4, 5, 6, 10, 15, 20, 100])
@@ -396,7 +406,7 @@ new Vue({
                     // without the transform, words words would get cutoff to the left and top, they would
                     // appear outside of the SVG area
                     // .attr("transform", "translate(320,200)")
-                    .attr("transform", "translate(" + 800/2  + "," + 400/2 + ")")
+                    .attr("transform", "translate(" + 800 / 2 + "," + 400 / 2 + ")")
                     .selectAll("text")
                     .data(words)
                     .enter().append("text")

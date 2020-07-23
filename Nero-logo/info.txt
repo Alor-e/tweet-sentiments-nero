@@ -1,0 +1,14 @@
+
+Hope you enjoy your new logo, here are the people that
+made your beautiful logo happen :)
+font name: ProzaLibre-Light
+font link: https://fonts.google.com/specimen/Proza+Libre
+font author: Jasper de Waard
+font author site: http://bureauroffa.com/about-proza-libre
+Slogan Font: Neuton-Extralight.ttf
+
+icon designer: Agne Alesiute
+icon designer link: /grrrauf
+        
+{"bg":"transparent","icon-gradient-0":"#395ECA","icon-gradient-1":"#848BD8","font":"#000000","slogan":"#141414"}
+      
