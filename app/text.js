@@ -57,12 +57,12 @@ new Vue({
 
     methods: {
         sendRequest() {
-            if (this.$refs.input.value) {
-                axios
-                  .get("/api/tweet", {
+          if (this.$refs.input.value) {
+            axios
+                .get("/api/text", {
                     params: {
                         name: this.text
-                    }   
+                    }
                 })
                   .then(response => (this.info = response.data))
             }

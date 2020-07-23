@@ -16,7 +16,7 @@ def text_response():
     if data and (not data.isspace()):
         output = text_engine(data)
     else:
-        output = []
+        output = ''
 
     response = jsonify(output)
     response.headers.add('Access-Control-Allow-Origin', '*')
@@ -37,7 +37,6 @@ def tweet_response():
 
 
 @app.route('/text', methods=['GET'])
-@cross_origin()
 def text_vue():
     return app.send_static_file("text.html")
 
