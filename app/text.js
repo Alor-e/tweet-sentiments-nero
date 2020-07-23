@@ -59,7 +59,7 @@ new Vue({
         sendRequest() {
             if (this.$refs.input.value) {
                 axios
-                  .get("http://localhost:5000/api/text", {
+                  .get("/api/text", {
                     params: {
                         name: this.text
                     }   
