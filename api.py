@@ -12,7 +12,7 @@ CORS(app)
 @app.route('/api/text', methods=['GET'])
 def text_response():
     data = request.args.get("name")
-    if data:
+    if data and (not data.isspace()):
         output = text_engine(data)
     else:
         output = []
