@@ -6,11 +6,11 @@ from flask_cors import CORS, cross_origin
 
 
 app = Flask(__name__, static_folder='app', static_url_path="/app")
-cors = CORS(app)
-app.config['CORS_HEADERS'] = 'Content-Type'
+# cors = CORS(app)
+# app.config['CORS_HEADERS'] = 'Content-Type'
+cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 @app.route('/api/text', methods=['GET'])
-@cross_origin()
 def text_response():
     data = request.args.get("name")
     if data and (not data.isspace()):
