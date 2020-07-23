@@ -47,5 +47,9 @@ def universal_path(path):
         return send_from_directory(app.static_folder, path)
 
 
+@app.route('/', methods=['GET'])
+def base():
+    return tweet_vue()
+
 if __name__ == '__main__':
     app.run(debug=True)
