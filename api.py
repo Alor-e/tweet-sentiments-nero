@@ -2,12 +2,12 @@ import os
 from flask import Flask, jsonify, request, send_from_directory
 from text_engine import text_engine
 from tweet_engine import tweet_engine
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 
 
 app = Flask(__name__, static_folder='app', static_url_path="/app")
-CORS(app)
-
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 @app.route('/api/text', methods=['GET'])
 def text_response():
@@ -36,6 +36,7 @@ def tweet_response():
 
 
 @app.route('/text', methods=['GET'])
+@cross_origin()
 def text_vue():
     return app.send_static_file("text.html")
 
