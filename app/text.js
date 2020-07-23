@@ -59,7 +59,7 @@ new Vue({
         sendRequest() {
             if (this.$refs.input.value) {
                 axios
-                  .get("/api/text", {
+                  .get("/api/tweet", {
                     params: {
                         name: this.text
                     }   
