@@ -19,7 +19,7 @@ def text_response():
         output = []
 
     response = jsonify(output)
-    
+    response.headers.add('Access-Control-Allow-Origin', '*')
     return response
 
 
