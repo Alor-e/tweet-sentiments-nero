@@ -17,7 +17,9 @@ def text_response():
     else:
         output = []
 
-    return jsonify(output)
+    response = jsonify(output)
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response
 
 
 @app.route('/api/tweet', methods=['GET'])
@@ -28,7 +30,9 @@ def tweet_response():
     else:
         output = ''
 
-    return jsonify(output)
+    response = jsonify(output)
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response
 
 
 @app.route('/text', methods=['GET'])
@@ -50,6 +54,7 @@ def universal_path(path):
 @app.route('/', methods=['GET'])
 def base():
     return tweet_vue()
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=int(os.environ.get("PORT", 5000)))
