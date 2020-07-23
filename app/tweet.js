@@ -367,9 +367,9 @@ new Vue({
                         return w.text == word;
                     });
                     if (wordObj.length) {
-                        wordObj[0].size += 3;
+                        wordObj[0].size += 2;
                     } else {
-                        newArray.push({ text: word, size: 3 });
+                        newArray.push({ text: word, size: 2 });
                     }
                 });
                 return newArray;
