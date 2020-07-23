@@ -10,6 +10,7 @@ cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
 @app.route('/api/text', methods=['GET'])
+@cross_origin()
 def text_response():
     data = request.args.get("name")
     if data and (not data.isspace()):
@@ -18,7 +19,7 @@ def text_response():
         output = []
 
     response = jsonify(output)
-    response.headers.add('Access-Control-Allow-Origin', '*')
+    
     return response
 
 
