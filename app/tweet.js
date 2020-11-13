@@ -1,5 +1,5 @@
 
-new Vue({
+tweetApp = new Vue({
     el: '#app',
     data() {
         return {
@@ -34,6 +34,10 @@ new Vue({
             averageSubjectivityValueApprox: '',
 
             titleHolder: null,
+
+            myChart: [],
+
+            n: 0,
 
         }
     },
@@ -89,16 +93,24 @@ new Vue({
                         this.titleHolder = this.text
 
                     }))
+                    .then(() => (this.charts(++this.n, this.uniquePolarity, this.polarityCount, 'bar', 'polarityBar', 'Tweets Sentiment Bar Chart')))
+                    .then(() => (this.charts(++this.n, this.uniquePolarity, this.polarityCount, 'pie', 'polarityPie', 'Tweets Sentiment Pie Chart')))
+                    .then(() => (this.charts(++this.n, this.uniqueSubjectivity, this.subjectivityCount, 'bar', 'subjectivityBar', 'Tweets Subjectivity Bar Chart')))
+                    .then(() => (this.charts(++this.n, this.uniqueSubjectivity, this.subjectivityCount, 'pie', 'subjectivityPie', 'Tweets Subjectivity Pie Chart')))
+                    .then(() => (this.charts(++this.n, this.uniqueEmotion, this.emotionCount, 'bar', 'emotionBar', 'Tweets Emotion Bar Chart')))
+                    .then(() => (this.charts(++this.n, this.uniqueEmotion, this.emotionCount, 'pie', 'emotionPie', 'Tweets Emotion Pie Chart')))
 
-                    .then(axios.spread(() => {
-                        this.charts(this.uniqueEmotion, this.emotionCount, 'pie', 'emotionPie', 'Tweets Emotion Pie Chart')
-                        this.charts(this.uniquePolarity, this.polarityCount, 'pie', 'polarityPie', 'Tweets Sentiment Pie Chart')
-                        this.charts(this.uniqueSubjectivity, this.subjectivityCount, 'pie', 'subjectivityPie', 'Tweets Subjectivity Pie Chart')
-                        this.charts(this.uniqueEmotion, this.emotionCount, 'bar', 'emotionBar', 'Tweets Emotion Bar Chart')
-                        this.charts(this.uniquePolarity, this.polarityCount, 'bar', 'polarityBar', 'Tweets Sentiment Bar Chart')
-                        this.charts(this.uniqueSubjectivity, this.subjectivityCount, 'bar', 'subjectivityBar', 'Tweets Subjectivity Bar Chart')
 
-                    }))
+                // .then(axios.spread(() => {
+
+                //     this.charts(this.uniqueEmotion, this.emotionCount, 'pie', 'emotionPie', 'Tweets Emotion Pie Chart')
+                //     this.charts(this.uniquePolarity, this.polarityCount, 'pie', 'polarityPie', 'Tweets Sentiment Pie Chart')
+                //     this.charts(this.uniqueSubjectivity, this.subjectivityCount, 'pie', 'subjectivityPie', 'Tweets Subjectivity Pie Chart')
+                //     this.charts(this.uniqueEmotion, this.emotionCount, 'bar', 'emotionBar', 'Tweets Emotion Bar Chart')
+                //     this.charts(this.uniquePolarity, this.polarityCount, 'bar', 'polarityBar', 'Tweets Sentiment Bar Chart')
+                //     this.charts(this.uniqueSubjectivity, this.subjectivityCount, 'bar', 'subjectivityBar', 'Tweets Subjectivity Bar Chart')
+
+                // }))
 
             }
         },
@@ -120,6 +132,9 @@ new Vue({
         },
 
 
+        clearCanvas(htmlId) {
+            document.getElementById(htmlId).remove()
+        },
 
         polarityNormalized(sentiment) {
 
@@ -161,55 +176,64 @@ new Vue({
         },
 
 
-        charts(labelsList, dataList, type, htmlId, label) {
-            let ctx = document.getElementById(htmlId).getContext('2d');
-            var myChart = new Chart(ctx, {
-                type: type,
-                data: {
-                    labels: labelsList,
-                    datasets: [{
-                        label: label,
-                        data: dataList,
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(54, 162, 235, 0.2)',
-                            'rgba(255, 206, 86, 0.2)',
-                            'rgba(75, 192, 192, 0.2)',
-                            'rgba(153, 102, 255, 0.2)',
-                            'rgba(255, 159, 64, 0.2)',
-                            'rgba(130, 224, 170, 0.2)',
-                            'rgba(248, 196, 113, 0.2)',
-                            'rgba(174, 214, 68, 0.2)',
-                            'rgba(215, 189, 226, 0.2)',
-                        ],
-                        borderColor: [
-                            'rgba(255, 99, 132, 1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(153, 102, 255, 1)',
-                            'rgba(255, 159, 64, 1)',
-                            'rgba(130, 224, 170, 1)',
-                            'rgba(248, 196, 113, 1)',
-                            'rgba(174, 214, 241, 1)',
-                            'rgba(215, 189, 226, 1)',
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: false,
-                    maintainAspectRatio: false,
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero: true
-                            }
-                        }]
-                    }
+        charts(num, labelsList, dataList, type, htmlId, label) {
+                
+                if ( this.n >= 7) {
+                    this.myChart[num-6].destroy();
+                    // alert('Yo')
                 }
-            });
+                
+                let ctx = document.getElementById(htmlId).getContext('2d');
 
+                this.myChart[num] = new Chart(ctx, {
+                    type: type,
+                    data: {
+                        labels: labelsList,
+                        datasets: [{
+                            label: label,
+                            data: dataList,
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(255, 159, 64, 0.2)',
+                                'rgba(130, 224, 170, 0.2)',
+                                'rgba(248, 196, 113, 0.2)',
+                                'rgba(174, 214, 68, 0.2)',
+                                'rgba(215, 189, 226, 0.2)',
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)',
+                                'rgba(130, 224, 170, 1)',
+                                'rgba(248, 196, 113, 1)',
+                                'rgba(174, 214, 241, 1)',
+                                'rgba(215, 189, 226, 1)',
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: false,
+                        maintainAspectRatio: false,
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        }
+                    }
+                });
+
+
+            
 
 
         },
@@ -218,6 +242,7 @@ new Vue({
 
             let result = this.info.reduce((sum, current) => sum + current.sentiment.polarity, 0);
             this.averagePolarityValue = result / (this.info.length);
+            this.averagePolarityValue = this.averagePolarityValue - 0.08
             this.averagePolarityValueApprox = this.averagePolarityValue.toFixed(1);
 
         },
@@ -311,7 +336,7 @@ new Vue({
 
             y.style.display = "flex";
 
-            
+
         },
 
         expandedSideBar() {
@@ -323,7 +348,7 @@ new Vue({
 
             y.style.display = "flex";
 
-        
+
         },
 
         resizeCanvas() {
