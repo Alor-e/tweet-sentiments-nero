@@ -72,7 +72,7 @@ tqdm==4.45.0
 tweepy==3.8.0
 tweet-preprocessor==0.6.0
 TwitterAPI==2.5.11
-urllib3==1.25.9
+urllib3==1.26.5
 virtualenv==20.0.13
 virtualenvwrapper-win==1.2.6
 wasabi==0.6.0
